@@ -1,0 +1,14 @@
+<h1 class="text-center">WELCOME TO LONGEST WORD CONTROLLER</h1>
+<div class="container">
+  <div class="text-center">
+    <form action="/init" method="post">
+        <div class="form-group form-inline text-center">
+          <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+          <input type="text" name="usr_name" placeholder="John " class="form-control input-lg">
+          <input type="submit" value="Confirm!" class="btn btn-primary">
+        </div>
+      </form>
+  </div>
+</div>
+
+

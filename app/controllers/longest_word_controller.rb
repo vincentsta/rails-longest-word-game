@@ -5,15 +5,24 @@ class LongestWordController < ApplicationController
   def game
     @grid = generate_grid(9)
     @start_time = Time.now
+    @usr_name = session[:usr_name]
+    session[:grid] = @grid
+  end
+
+  def init
+  end
+
+  def usr_name
+    session[:usr_name] = params[:usr_name]
+    redirect_to game_url
   end
 
   def score
     @attempt = params[:usr_answer]
-    @grid = params[:grid]
+    @grid = session[:grid]
     start_time = params[:start_time].to_datetime
     end_time = Time.now
-    @result = run_game(@attempt, @grid.split(//), start_time, end_time)
-    # raise
+    @result = run_game(@attempt, @grid, start_time, end_time)
   end
 
   private
